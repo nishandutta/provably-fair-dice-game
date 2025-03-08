@@ -1,6 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import Link from 'next/link'
 
 export default function GameHistory() {
   const [history, setHistory] = useState([])
@@ -16,7 +17,12 @@ export default function GameHistory() {
 
   return (
     <div className='p-6'>
-      <h2 className='text-xl font-bold mb-4'>Game History</h2>
+      <div>
+        <h2 className='text-xl font-bold mb-4 float-left'>Game History</h2>
+        <Link href='/' className='text-xl font-bold mb-4 float-right'>
+          Play Game
+        </Link>
+      </div>
       <table className='table-auto w-full border-collapse border border-gray-800'>
         <thead>
           <tr>
@@ -24,7 +30,6 @@ export default function GameHistory() {
             <th className='border border-gray-800 p-2'>Bet</th>
             <th className='border border-gray-800 p-2'>Result</th>
             <th className='border border-gray-800 p-2'>Balance</th>
-            <th className='border border-gray-800 p-2'>Hash</th>
           </tr>
         </thead>
         <tbody>
@@ -36,7 +41,6 @@ export default function GameHistory() {
                 {game.win ? '✅ Win' : '❌ Loss'}
               </td>
               <td className='border border-gray-800 p-2'>${game.newBalance}</td>
-              <td className='border border-gray-800 p-2'>{game.hash}</td>
             </tr>
           ))}
         </tbody>
