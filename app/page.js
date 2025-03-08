@@ -73,7 +73,7 @@ export default function Home() {
   return (
     <>
       <div className='grid grid-cols-5'>
-        <div className='col-span-2 bg-[#31363F] p-10'>
+        <div className='col-span-5 md:col-span-2 bg-[#31363F] p-10'>
           <h1 className='font-bold pb-2'>Bet Amount</h1>
           <BetInput bet={bet} setBet={setBet} />
           {result && (
@@ -106,7 +106,7 @@ export default function Home() {
             </button>
           </div>
         </div>
-        <div className='col-span-3 bg-[#222831] p-10 h-screen'>
+        <div className='col-span-5 md:col-span-3 bg-[#222831] p-10 h-screen'>
           <div className='flex flex-col text-white rounded-lg p-4 relative h-full'>
             {/* ✅ Top Right Balance */}
             <div className='absolute top-0 right-0 text-right'>
