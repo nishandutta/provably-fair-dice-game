@@ -8,7 +8,7 @@ export default function GameHistory() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:4000/game-history')
+      .get(`${process.env.NEXT_PUBLIC_API_URL}/game-history`)
       .then((response) => {
         setHistory(response.data)
       })
