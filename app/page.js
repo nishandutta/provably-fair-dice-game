@@ -53,6 +53,23 @@ export default function Home() {
     }
   }
 
+  const handleResetGame = async () => {
+    try {
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/reset-game`
+      )
+      if (response.data.success) {
+        setBalance(response.data.balance)
+        setResult(null)
+        setRoll(null)
+        alert('✅ Game reset successfully!')
+      }
+    } catch (error) {
+      console.error('Error resetting game:', error)
+      alert('❌ Failed to reset game')
+    }
+  }
+
   return (
     <>
       <div className='grid grid-cols-5'>
@@ -80,6 +97,14 @@ export default function Home() {
             <div className='col-span-1 justify-end text-right'>$</div>
           </div>
           <Dice handleRollDice={handleRollDice} />
+          <div className='flex justify-center my-4'>
+            <button
+              className='bg-red-800 text-white font-bold py-2 px-4 rounded w-full'
+              onClick={handleResetGame}
+            >
+              Reset Game (Balance)
+            </button>
+          </div>
         </div>
         <div className='col-span-3 bg-[#222831] p-10 h-screen'>
           <div className='flex flex-col text-white rounded-lg p-4 relative h-full'>
