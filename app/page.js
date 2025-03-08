@@ -17,7 +17,7 @@ export default function Home() {
   // ✅ Fetch balance from API when page loads
   useEffect(() => {
     axios
-      .get('http://localhost:4000/balance')
+      .get(`${process.env.NEXT_PUBLIC_API_URL}/balance`)
       .then((response) => {
         setBalance(response.data.balance)
       })
@@ -28,9 +28,12 @@ export default function Home() {
 
   const handleRollDice = async () => {
     try {
-      const response = await axios.post('http://localhost:4000/roll-dice', {
-        bet: parseFloat(bet),
-      })
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/roll-dice`,
+        {
+          bet: parseFloat(bet),
+        }
+      )
 
       setResult(response.data)
       setBalance(response.data.newBalance)
