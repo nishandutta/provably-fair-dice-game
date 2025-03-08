@@ -5,7 +5,6 @@ import Balance from '../components/Balance'
 import BetInput from '../components/BetInput'
 import Dice from '../components/Dice'
 import DiceLine from '@/components/DiceLine'
-import { CiDollar } from 'react-icons/ci'
 import Link from 'next/link'
 
 export default function Home() {
